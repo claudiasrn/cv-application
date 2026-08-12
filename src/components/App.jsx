@@ -23,10 +23,23 @@ export default function App() {
 		setCurrentSection(index);
 	}
 
+	function updateHeader(field, value) {
+		setCVData((prev) => ({
+			...prev,
+			header: { ...prev.header, [field]: value },
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
-				return <HeaderForm handleNext={handleNext} />;
+				return (
+					<HeaderForm
+						handleNext={handleNext}
+						updateHeader={updateHeader}
+						header={cvData.header}
+					/>
+				);
 			case 1:
 				return <ExperienceForm handleNext={handleNext} />;
 			case 2:
@@ -45,7 +58,7 @@ export default function App() {
 			<SectionMenu
 				currentSection={currentSection}
 				submittedSections={submittedSections}
-                goToSection={goToSection}
+				goToSection={goToSection}
 			/>
 			{renderSection()}
 			<CVPreview cvData={cvData} />
