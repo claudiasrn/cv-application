@@ -7,6 +7,8 @@ import { ProjectsForm } from "./forms/ProjectsForm.jsx";
 import { SkillsForm } from "./forms/SkillsForm.jsx";
 import { CVPreview } from "./preview/CVPreview.jsx";
 import { SectionMenu } from "./SectionMenu.jsx";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { CVDocument } from "./pdf/CVDocument.jsx";
 import { cvData as initialData } from "../data/initialData.js";
 
 export default function App() {
@@ -114,6 +116,18 @@ export default function App() {
 						updateLanguages={updateLanguages}
 						languages={cvData.languages}
 					/>
+				);
+			default:
+				return (
+					<div className="download">
+						<p>Your CV is ready</p>
+						<PDFDownloadLink
+							document={<CVDocument cvData={cvData} />}
+							fileName="CV.pdf"
+						>
+							{({ loading }) => (loading ? "Preparing..." : "Download PDF")}
+						</PDFDownloadLink>
+					</div>
 				);
 		}
 	}
