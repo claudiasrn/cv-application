@@ -51,6 +51,13 @@ export default function App() {
 		}));
 	}
 
+	function updateLanguages(languages) {
+		setCVData((prev) => ({
+			...prev,
+			languages: languages,
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -88,7 +95,13 @@ export default function App() {
 			case 4:
 				return <SkillsForm handleNext={handleNext} />;
 			case 5:
-				return <LanguagesForm handleNext={handleNext} />;
+				return (
+					<LanguagesForm
+						handleNext={handleNext}
+						updateLanguages={updateLanguages}
+						languages={cvData.languages}
+					/>
+				);
 		}
 	}
 
