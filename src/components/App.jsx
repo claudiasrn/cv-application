@@ -30,6 +30,13 @@ export default function App() {
 		}));
 	}
 
+	function updateExperience(experience) {
+		setCVData((prev) => ({
+			...prev,
+			experience: experience,
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -41,7 +48,13 @@ export default function App() {
 					/>
 				);
 			case 1:
-				return <ExperienceForm handleNext={handleNext} />;
+				return (
+					<ExperienceForm
+						handleNext={handleNext}
+						updateExperience={updateExperience}
+						experience={cvData.experience}
+					/>
+				);
 			case 2:
 				return <EducationForm handleNext={handleNext} />;
 			case 3:
