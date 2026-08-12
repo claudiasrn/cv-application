@@ -2,6 +2,7 @@ export const cvData = {
     header: {
         name: "",
         subtitle: "",
+        photoPreview: "",
         photo: "",
         email: "",
         phone: "",
