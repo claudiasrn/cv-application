@@ -37,6 +37,13 @@ export default function App() {
 		}));
 	}
 
+	function updateEducation(education) {
+		setCVData((prev) => ({
+			...prev,
+			education: education,
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -56,7 +63,13 @@ export default function App() {
 					/>
 				);
 			case 2:
-				return <EducationForm handleNext={handleNext} />;
+				return (
+					<EducationForm
+						handleNext={handleNext}
+						updateEducation={updateEducation}
+						education={cvData.education}
+					/>
+				);
 			case 3:
 				return <ProjectsForm handleNext={handleNext} />;
 			case 4:
