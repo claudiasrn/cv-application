@@ -3,6 +3,7 @@ export const cvData = {
         name: "",
         subtitle: "",
         photoPreview: "",
+        photoBase64: "",
         photo: "",
         email: "",
         phone: "",
