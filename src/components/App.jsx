@@ -44,6 +44,13 @@ export default function App() {
 		}));
 	}
 
+	function updateProjects(projects) {
+		setCVData((prev) => ({
+			...prev,
+			projects: projects,
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -71,7 +78,13 @@ export default function App() {
 					/>
 				);
 			case 3:
-				return <ProjectsForm handleNext={handleNext} />;
+				return (
+					<ProjectsForm
+						handleNext={handleNext}
+						updateProjects={updateProjects}
+						projects={cvData.projects}
+					/>
+				);
 			case 4:
 				return <SkillsForm handleNext={handleNext} />;
 			case 5:
