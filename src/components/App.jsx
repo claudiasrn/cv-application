@@ -58,6 +58,13 @@ export default function App() {
 		}));
 	}
 
+	function updateSkills(skills) {
+		setCVData((prev) => ({
+			...prev,
+			skills: skills,
+		}));
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -93,7 +100,13 @@ export default function App() {
 					/>
 				);
 			case 4:
-				return <SkillsForm handleNext={handleNext} />;
+				return (
+					<SkillsForm
+						handleNext={handleNext}
+						updateSkills={updateSkills}
+						skills={cvData.skills}
+					/>
+				);
 			case 5:
 				return (
 					<LanguagesForm
