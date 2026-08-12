@@ -5,7 +5,8 @@ export function SectionMenu({ currentSection, submittedSections, goToSection }) 
         2: "Education",
         3: "Projects",
         4: "Skills",
-        5: "Languages"
+        5: "Languages",
+        6: "Download"
     }
 
 
@@ -29,6 +30,7 @@ export function SectionMenu({ currentSection, submittedSections, goToSection }) 
             {renderButton(3)}
             {renderButton(4)}
             {renderButton(5)}
+            {renderButton(6)}
 		</div>
 	);
 }
