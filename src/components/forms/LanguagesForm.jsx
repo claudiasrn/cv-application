@@ -57,7 +57,7 @@ export function LanguagesForm({ handleNext, updateLanguages, languages }) {
 				</EntryCard>
 			))}
 			<button onClick={addEntry}>+ Add language</button>
-			<button onClick={handleNext}>Next</button>
+			<button onClick={handleNext}>Finish</button>
 		</div>
 	);
 }
