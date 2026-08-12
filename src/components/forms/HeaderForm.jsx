@@ -10,6 +10,12 @@ export function HeaderForm({ handleNext, updateHeader, header }) {
 		const previewUrl = URL.createObjectURL(file);
 		updateHeader("photoPreview", previewUrl);
 		updateHeader("photo", file);
+
+		const reader = new FileReader();
+		reader.onload = () => {
+			updateHeader("photoBase64", reader.result);
+		};
+		reader.readAsDataURL(file);
 	}
 
 	function removePicture() {
@@ -18,6 +24,7 @@ export function HeaderForm({ handleNext, updateHeader, header }) {
 		}
 		updateHeader("photoPreview", "");
 		updateHeader("photo", "");
+		updateHeader("photoBase64", "")
 	}
 
 	function handleFieldChange(field, value) {
@@ -94,31 +101,31 @@ export function HeaderForm({ handleNext, updateHeader, header }) {
 					onChange={(e) => handleFieldChange("address", e.target.value)}
 				/>
 			</div>
-            <div className="links">
-                <p>Links</p>
-                <label htmlFor="github">GitHub</label>
+			<div className="links">
+				<p>Links</p>
+				<label htmlFor="github">GitHub</label>
 				<input
 					type="text"
 					id="github"
 					value={header.github}
 					onChange={(e) => handleFieldChange("github", e.target.value)}
 				/>
-                <label htmlFor="linkedin">LinkedIn</label>
+				<label htmlFor="linkedin">LinkedIn</label>
 				<input
 					type="text"
 					id="linkedin"
 					value={header.linkedin}
 					onChange={(e) => handleFieldChange("linkedin", e.target.value)}
 				/>
-                <label htmlFor="portfolio">Portfolio</label>
+				<label htmlFor="portfolio">Portfolio</label>
 				<input
 					type="text"
 					id="portfolio"
 					value={header.portfolio}
 					onChange={(e) => handleFieldChange("portfolio", e.target.value)}
 				/>
-            </div>
-            <button onClick={() => handleNext()}>Next</button>
+			</div>
+			<button onClick={() => handleNext()}>Next</button>
 		</div>
 	);
 }
