@@ -1,3 +1,7 @@
+import "../../styles/CVPreview.css";
+import { Mail, Phone, Home, Globe } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 export function CVPreview({ cvData }) {
 	return (
 		<div className="preview">
@@ -85,7 +89,9 @@ export function CVPreview({ cvData }) {
 							return (
 								<div className="project" key={entry.id}>
 									{entry.name ? <h3>{entry.name}</h3> : null}
-									{entry.link ? <a href={entry.link}>Open project</a> : null}
+									{entry.link ? (
+										<a href={entry.link}>Click to open the project</a>
+									) : null}
 									{entry.bullets.length > 0 ? (
 										<div className="bullets">
 											{entry.bullets.map((bullet) => {
@@ -109,10 +115,40 @@ export function CVPreview({ cvData }) {
 					<img src={cvData.header.photoPreview} />
 				) : null}
 				{cvData.header.email ? (
-					<a href={`mailto:${cvData.header.email}`}>{cvData.header.email}</a>
+					<div className="email">
+						<Mail size={16} color="var(--color-background)" />
+						<a href={`mailto:${cvData.header.email}`}>{cvData.header.email}</a>
+					</div>
 				) : null}
 				{cvData.header.phone ? (
-					<a href={`tel:${cvData.header.phone}`}>{cvData.header.phone}</a>
+					<div className="phone">
+						<Phone size={16} color="var(--color-background)" />
+						<a href={`tel:${cvData.header.phone}`}>{cvData.header.phone}</a>
+					</div>
+				) : null}
+				{cvData.header.address ? (
+					<div className="address">
+						<Home size={16} color="var(--color-background)" />
+						<p>{cvData.header.address}</p>
+					</div>
+				) : null}
+				{cvData.header.github ? (
+					<div className="github">
+						<FaGithub size={16} color="var(--color-background)" />
+						<a href={cvData.header.github}>Click to open GitHub</a>
+					</div>
+				) : null}
+				{cvData.header.linkedin ? (
+					<div className="linkedin">
+						<FaLinkedin size={16} color="var(--color-background)" />
+						<a href={cvData.header.linkedin}>Click to open LinkIn</a>
+					</div>
+				) : null}
+				{cvData.header.portfolio ? (
+					<div className="portfolio">
+						<Globe size={16} color="var(--color-background)" />
+						<a href={cvData.header.portfolio}>Click to open portfolio</a>
+					</div>
 				) : null}
 				{cvData.skills.length > 0 ? (
 					<div className="skills">
