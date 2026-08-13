@@ -1,0 +1,255 @@
+:root {
+	--color-accent: #4a5d3a;
+	--color-text: #3a2e26;
+	--color-text-muted: #7a6f66;
+	--color-background: #f9f6f0;
+
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 28px;
+
+	--font-size-name: 28px;
+	--font-size-section-label: 12px;
+	--font-size-body: 12px;
+}
+
+/* inter-regular - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/fonts/inter-v20-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/fonts/inter-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-800 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 800;
+	src: url("../assets/fonts/inter-v20-latin-800.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+*:not(dialog) {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Preview */
+
+.preview {
+	width: 794px;
+	min-height: 1123px;
+	background-color: var(--color-background);
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+	display: flex;
+	padding-left: var(--spacing-lg);
+	font-family: Inter;
+}
+
+.left-side {
+	flex: 3;
+	padding-right: var(--spacing-lg);
+	border-left: 1px solid var(--color-accent);
+}
+
+h1 {
+	margin-top: var(--spacing-lg);
+	font-size: var(--font-size-name);
+	text-align: end;
+	margin-bottom: var(--spacing-sm);
+	color: var(--color-text);
+}
+
+em {
+	font-size: var(--font-size-body);
+	text-align: end;
+	width: 100%;
+	display: block;
+	color: var(--color-text);
+}
+
+.work-experience,
+.education {
+	display: flex;
+	flex-direction: column;
+	margin-top: var(--spacing-md);
+	margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+	font-size: var(--font-size-section-label);
+	margin-bottom: var(--spacing-md);
+	margin-left: var(--spacing-sm);
+	letter-spacing: 2px;
+	color: var(--color-accent);
+	font-weight: 800;
+}
+
+.work,
+.degree {
+	display: flex;
+	gap: var(--spacing-lg);
+}
+
+.dates > p {
+	border-left: 3px solid var(--color-accent);
+	padding-left: var(--spacing-sm);
+	padding-right: var(--spacing-lg);
+	font-size: var(--font-size-section-label);
+	color: var(--color-text);
+}
+
+h3 {
+	font-size: var(--font-size-section-label);
+	color: var(--color-text);
+	font-weight: 700;
+	margin-left: var(--spacing-sm);
+	margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+	display: flex;
+	gap: var(--spacing-sm);
+	font-size: var(--font-size-section-label);
+	color: var(--color-text);
+	margin-left: var(--spacing-sm);
+	margin-bottom: var(--spacing-sm);
+}
+
+.subtitle > p:first-of-type {
+	font-weight: 700;
+}
+
+.bullet {
+	display: flex;
+	gap: var(--spacing-sm);
+	font-size: var(--font-size-body);
+	color: var(--color-text-muted);
+}
+
+.bullets {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
+.work + .work,
+.degree + .degree,
+.project + .project {
+	margin-top: var(--spacing-lg);
+}
+
+.project > a {
+	display: block;
+	text-decoration: none;
+	color: var(--color-accent);
+	font-size: var(--font-size-section-label);
+	margin-left: var(--spacing-sm);
+	margin-bottom: var(--spacing-sm);
+}
+
+.project > .bullets {
+	margin-left: var(--spacing-sm);
+}
+
+.right-side {
+	background-color: var(--color-accent);
+	display: flex;
+	flex-direction: column;
+	padding: 0 var(--spacing-md);
+	gap: var(--spacing-sm);
+}
+
+img {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	margin: var(--spacing-lg) auto var(--spacing-md);
+}
+
+.right-side > div > a,
+.right-side > div > p {
+	display: block;
+	text-decoration: none;
+	color: var(--color-background);
+	font-size: var(--font-size-body);
+	margin-left: var(--spacing-sm);
+}
+
+.right-side > div {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.right-side > .skills,
+.right-side > .languages {
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: var(--spacing-lg);
+}
+
+.right-side h2 {
+	color: var(--color-background);
+	margin-left: 0;
+}
+
+.skill,
+.language {
+	display: flex;
+	gap: var(--spacing-sm);
+	margin-left: var(--spacing-sm);
+	color: var(--color-background);
+	font-size: var(--font-size-body);
+}
+
+.right-side > div:first-child,
+.left-side > em:first-child,
+.left-side > div:first-child {
+	margin-top: var(--spacing-lg);
+}
