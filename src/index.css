@@ -14,12 +14,13 @@
 }
 
 /* inter-regular - latin */
+/* inter-regular - latin */
 @font-face {
 	font-display: swap;
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 400;
-	src: url("../assets/fonts/inter-v20-latin-regular.woff2") format("woff2");
+	src: url("./assets/fonts/inter-v20-latin-regular.woff2") format("woff2");
 }
 /* inter-700 - latin */
 @font-face {
@@ -27,7 +28,7 @@
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 700;
-	src: url("../assets/fonts/inter-v20-latin-700.woff2") format("woff2");
+	src: url("./assets/fonts/inter-v20-latin-700.woff2") format("woff2");
 }
 /* inter-800 - latin */
 @font-face {
@@ -35,7 +36,7 @@
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 800;
-	src: url("../assets/fonts/inter-v20-latin-800.woff2") format("woff2");
+	src: url("./assets/fonts/inter-v20-latin-800.woff2") format("woff2");
 }
 
 /* Reset */
