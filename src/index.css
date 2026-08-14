@@ -1,1 +1,79 @@
+:root {
+	--color-accent: #4a5d3a;
+	--color-text: #3a2e26;
+	--color-text-muted: #7a6f66;
+	--color-background: #f9f6f0;
 
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 28px;
+
+	--font-size-name: 28px;
+	--font-size-section-label: 12px;
+	--font-size-body: 12px;
+}
+
+/* inter-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../assets/fonts/inter-v20-latin-regular.woff2") format("woff2");
+}
+/* inter-700 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../assets/fonts/inter-v20-latin-700.woff2") format("woff2");
+}
+/* inter-800 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 800;
+	src: url("../assets/fonts/inter-v20-latin-800.woff2") format("woff2");
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+*:not(dialog) {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-family: Inter;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
