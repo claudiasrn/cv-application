@@ -67,6 +67,14 @@ export default function App() {
 		}));
 	}
 
+	function resetForm() {
+		if (window.confirm("Reset the entire CV? This can't be undone.")) {
+			setCVData(initialData);
+			setCurrentSection(0);
+			setSubmittedSections({});
+		}
+	}
+
 	function renderSection() {
 		switch (currentSection) {
 			case 0:
@@ -127,6 +135,7 @@ export default function App() {
 						>
 							{({ loading }) => (loading ? "Preparing..." : "Download PDF")}
 						</PDFDownloadLink>
+						<button onClick={resetForm}>Start over</button>
 					</div>
 				);
 		}
