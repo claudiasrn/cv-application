@@ -10,6 +10,8 @@ import { SectionMenu } from "./SectionMenu.jsx";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { CVDocument } from "./pdf/CVDocument.jsx";
 import { cvData as initialData } from "../data/initialData.js";
+import { CircleCheck } from "lucide-react";
+import "../styles/App.css";
 
 export default function App() {
 	const [cvData, setCVData] = useState(initialData);
@@ -128,6 +130,7 @@ export default function App() {
 			default:
 				return (
 					<div className="download">
+						<CircleCheck/>
 						<p>Your CV is ready</p>
 						<PDFDownloadLink
 							document={<CVDocument cvData={cvData} />}
