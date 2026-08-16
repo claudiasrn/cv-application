@@ -1,4 +1,5 @@
 import { EntryCard } from "../EntryCard";
+import { X, Plus } from "lucide-react";
 
 export function ProjectsForm({ handleNext, updateProjects, projects }) {
     function handleDeleteProject(id) {
@@ -69,25 +70,31 @@ export function ProjectsForm({ handleNext, updateProjects, projects }) {
                     entryId={entry.id}
                     removeEntry={handleDeleteProject}
                 >
-                    <label htmlFor="name">Project name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={entry.name}
-                        onChange={(e) =>
-                            handleFieldChange("name", entry.id, e.target.value)
-                        }
-                    />
-                    <label htmlFor="link">Link</label>
-                    <input
-                        type="text"
-                        id="link"
-                        value={entry.link}
-                        onChange={(e) =>
-                            handleFieldChange("link", entry.id, e.target.value)
-                        }
-                    />
+                    <div>
+                        <label htmlFor="name">Project name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={entry.name}
+                            onChange={(e) =>
+                                handleFieldChange("name", entry.id, e.target.value)
+                            }
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="link">Link</label>
+                        <input
+                            type="text"
+                            id="link"
+                            value={entry.link}
+                            placeholder="github.com/yourname/project"
+                            onChange={(e) =>
+                                handleFieldChange("link", entry.id, e.target.value)
+                            }
+                        />
+                    </div>
                     <div className="responsibilities">
+                        <p>Details</p>
                         {entry.bullets.map((bullet) => (
                             <div key={bullet.id}>
                                 <input
@@ -98,17 +105,17 @@ export function ProjectsForm({ handleNext, updateProjects, projects }) {
                                     }
                                 />
                                 <button onClick={() => handleRemoveBullet(entry.id, bullet.id)}>
-                                    ×
+                                    <X/>
                                 </button>
                             </div>
                         ))}
                         <button onClick={() => handleAddBullet(entry.id)}>
-                            Add bullet point
+                            <Plus/> Add bullet point
                         </button>
                     </div>
                 </EntryCard>
             ))}
-            <button onClick={addEntry}>+ Add project</button>
+            <button onClick={addEntry}><Plus/> Add project</button>
             <button onClick={handleNext}>Next</button>
         </div>
     );
