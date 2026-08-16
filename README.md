@@ -1,16 +1,39 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React application that lets you build a CV/résumé section by section and export it as a polished PDF — built as my the first React project.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Step-by-step form flow** — fill in your info across six sections (Personal Info, Work Experience, Education, Projects, Skills, Languages), navigating via a section menu that locks upcoming sections until the previous one is submitted
+- **Live preview** — see your CV update in real time as you type, styled to match the final exported document
+- **Photo upload** — drag-and-drop or click to upload a profile photo, with live preview and the ability to remove/replace it
+- **Repeatable entries** — add or remove as many jobs, degrees, projects, or languages as you need, each with its own bullet points
+- **PDF export** — download a polished, pixel-matched PDF of your finished CV, built with [`@react-pdf/renderer`](https://react-pdf.org/).
+- **Reset** — clear the form and start over.
+## Tech stack
 
-## React Compiler
+- **React** + **Vite**
+- **@react-pdf/renderer** for PDF generation, with a self-hosted Inter font registered for consistent typography between the preview and the exported PDF
+- **lucide-react** and **react-icons** for icons
+- Plain CSS with custom properties for theming
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── assets/
+│   └── fonts/           # Self-hosted Inter font files (used by index.css and the PDF renderer)
+├── components/
+│   ├── forms/            # One form component per CV section
+│   ├── pdf/                # react-pdf document + icon components
+│   ├── preview/             # Live on-screen CV preview
+│   ├── App.jsx
+│   ├── EntryCard.jsx        # Reusable card for repeatable entries
+│   └── SectionMenu.jsx
+├── data/
+│   ├── initialData.js      # Empty starting shape for the CV data
+│   └── theme.js             # Shared color/spacing/font constants
+└── styles/
+    ├── App.css
+    └── CVPreview.css
+```
