@@ -1,4 +1,5 @@
 import { EntryCard } from "../EntryCard";
+import { X, Plus } from "lucide-react";
 
 export function ExperienceForm({ handleNext, updateExperience, experience }) {
 	function handleDeleteExperience(id) {
@@ -72,52 +73,69 @@ export function ExperienceForm({ handleNext, updateExperience, experience }) {
 					entryId={entry.id}
 					removeEntry={handleDeleteExperience}
 				>
-					<label htmlFor="job-title">Job title</label>
-					<input
-						type="text"
-						id="job-title"
-						value={entry.title}
-						onChange={(e) =>
-							handleFieldChange("title", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="company">Company</label>
-					<input
-						type="text"
-						id="company"
-						value={entry.company}
-						onChange={(e) =>
-							handleFieldChange("company", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="location">Location</label>
-					<input
-						type="text"
-						id="location"
-						value={entry.location}
-						onChange={(e) =>
-							handleFieldChange("location", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="start-date">Start date</label>
-					<input
-						type="text"
-						id="start-date"
-						value={entry.startDate}
-						onChange={(e) =>
-							handleFieldChange("startDate", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="end-date">End date</label>
-					<input
-						type="text"
-						id="end-date"
-						value={entry.endDate}
-						onChange={(e) =>
-							handleFieldChange("endDate", entry.id, e.target.value)
-						}
-					/>
+					<div className="job-info">
+						<div>
+							<label htmlFor="job-title">Job title</label>
+							<input
+								type="text"
+								id="job-title"
+								value={entry.title}
+								onChange={(e) =>
+									handleFieldChange("title", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="company">Company</label>
+							<input
+								type="text"
+								id="company"
+								value={entry.company}
+								onChange={(e) =>
+									handleFieldChange("company", entry.id, e.target.value)
+								}
+							/>
+						</div>
+					</div>
+					<div className="job-details">
+						<div>
+							<label htmlFor="location">Location</label>
+							<input
+								type="text"
+								id="location"
+								value={entry.location}
+								onChange={(e) =>
+									handleFieldChange("location", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="start-date">Start date</label>
+							<input
+								type="text"
+								id="start-date"
+								value={entry.startDate}
+								placeholder="XX/20XX"
+								onChange={(e) =>
+									handleFieldChange("startDate", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="end-date">End date</label>
+							<input
+								type="text"
+								id="end-date"
+								value={entry.endDate}
+								placeholder="Present"
+								onChange={(e) =>
+									handleFieldChange("endDate", entry.id, e.target.value)
+								}
+							/>
+						</div>
+					</div>
 					<div className="responsibilities">
+						<p>Responsibilities</p>
 						{entry.bullets.map((bullet) => (
 							<div key={bullet.id}>
 								<input
@@ -127,20 +145,18 @@ export function ExperienceForm({ handleNext, updateExperience, experience }) {
 										handleBulletChange(entry.id, bullet.id, e.target.value)
 									}
 								/>
-								<button
-									onClick={() => handleRemoveBullet(entry.id, bullet.id)}
-								>
-									×
+								<button onClick={() => handleRemoveBullet(entry.id, bullet.id)}>
+									<X />
 								</button>
 							</div>
 						))}
 						<button onClick={() => handleAddBullet(entry.id)}>
-							Add bullet point
+							<Plus/> Add bullet point
 						</button>
 					</div>
 				</EntryCard>
 			))}
-			<button onClick={addEntry}>+ Add job</button>
+			<button onClick={addEntry}><Plus/> Add job</button>
 			<button onClick={handleNext}>Next</button>
 		</div>
 	);
