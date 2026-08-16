@@ -285,6 +285,12 @@ a:focus-visible {
 	background-color: var(--color-background);
 	color: #994444;
 	cursor: pointer;
+	border-radius: 50px;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .job-info,
@@ -419,4 +425,53 @@ a:focus-visible {
     color: var(--color-text-muted);
     border: 1px solid var(--color-border);
     border-radius: 8px;
+}
+
+.section-menu > button.unlocked:hover {
+	background-color: var(--color-border);
+}
+
+.header-form > button:hover,
+.experience-form > button + button:hover,
+.education-form > button + button:hover,
+.projects-form > button + button:hover,
+.skills-form > button:hover,
+.languages-form > button + button:hover {
+	background-color: #3d4e30;
+}
+
+.experience-form > button:hover,
+.education-form > button:hover,
+.projects-form > button:hover,
+.languages-form > button:hover {
+	background-color: var(--color-border);
+}
+
+.picture-dropzone button:hover {
+	background-color: var(--color-accent);
+}
+
+.entry-card > button:hover {
+	background-color: rgba(153, 68, 68, 0.1);
+}
+
+.skill > button:hover {
+	color: #3d4e30;
+}
+
+.responsibilities > div > button:hover {
+	color: #3d4e30;
+}
+
+.responsibilities > button:hover {
+	color: #3d4e30;
+}
+
+.download > a:hover {
+	background-color: #3d4e30;
+}
+
+.download > button:hover {
+	background-color: var(--color-border);
+	color: var(--color-text);
 }
