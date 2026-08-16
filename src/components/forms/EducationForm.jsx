@@ -1,4 +1,5 @@
 import { EntryCard } from "../EntryCard";
+import { X, Plus } from "lucide-react";
 
 export function EducationForm({ handleNext, updateEducation, education }) {
 	function handleDeleteEducation(id) {
@@ -72,52 +73,69 @@ export function EducationForm({ handleNext, updateEducation, education }) {
 					entryId={entry.id}
 					removeEntry={handleDeleteEducation}
 				>
-					<label htmlFor="degree">Degree</label>
-					<input
-						type="text"
-						id="degree"
-						value={entry.degree}
-						onChange={(e) =>
-							handleFieldChange("degree", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="institution">Institution</label>
-					<input
-						type="text"
-						id="institution"
-						value={entry.institution}
-						onChange={(e) =>
-							handleFieldChange("institution", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="location">Location</label>
-					<input
-						type="text"
-						id="location"
-						value={entry.location}
-						onChange={(e) =>
-							handleFieldChange("location", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="start-date">Start date</label>
-					<input
-						type="text"
-						id="start-date"
-						value={entry.startDate}
-						onChange={(e) =>
-							handleFieldChange("startDate", entry.id, e.target.value)
-						}
-					/>
-					<label htmlFor="end-date">End date</label>
-					<input
-						type="text"
-						id="end-date"
-						value={entry.endDate}
-						onChange={(e) =>
-							handleFieldChange("endDate", entry.id, e.target.value)
-						}
-					/>
+					<div className="education-info">
+						<div>
+							<label htmlFor="degree">Degree</label>
+							<input
+								type="text"
+								id="degree"
+								value={entry.degree}
+								onChange={(e) =>
+									handleFieldChange("degree", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="institution">Institution</label>
+							<input
+								type="text"
+								id="institution"
+								value={entry.institution}
+								onChange={(e) =>
+									handleFieldChange("institution", entry.id, e.target.value)
+								}
+							/>
+						</div>
+					</div>
+					<div className="education-details">
+						<div>
+							<label htmlFor="location">Location</label>
+							<input
+								type="text"
+								id="location"
+								value={entry.location}
+								onChange={(e) =>
+									handleFieldChange("location", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="start-date">Start date</label>
+							<input
+								type="text"
+								id="start-date"
+								value={entry.startDate}
+								placeholder="XX/20XX"
+								onChange={(e) =>
+									handleFieldChange("startDate", entry.id, e.target.value)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor="end-date">End date</label>
+							<input
+								type="text"
+								id="end-date"
+								value={entry.endDate}
+								placeholder="Present"
+								onChange={(e) =>
+									handleFieldChange("endDate", entry.id, e.target.value)
+								}
+							/>
+						</div>
+					</div>
 					<div className="responsibilities">
+						<p>Highlights</p>
 						{entry.bullets.map((bullet) => (
 							<div key={bullet.id}>
 								<input
@@ -128,17 +146,17 @@ export function EducationForm({ handleNext, updateEducation, education }) {
 									}
 								/>
 								<button onClick={() => handleRemoveBullet(entry.id, bullet.id)}>
-									×
+									<X/>
 								</button>
 							</div>
 						))}
 						<button onClick={() => handleAddBullet(entry.id)}>
-							Add bullet point
+							<Plus/>Add bullet point
 						</button>
 					</div>
 				</EntryCard>
 			))}
-			<button onClick={addEntry}>+ Add education</button>
+			<button onClick={addEntry}><Plus/> Add education</button>
 			<button onClick={handleNext}>Next</button>
 		</div>
 	);
