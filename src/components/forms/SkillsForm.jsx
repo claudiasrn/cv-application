@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { X } from "lucide-react";
 
 export function SkillsForm({ handleNext, updateSkills, skills }) {
 	function handleDeleteSkill(id) {
@@ -16,27 +17,30 @@ export function SkillsForm({ handleNext, updateSkills, skills }) {
 
 	return (
 		<div className="skills-form">
-			<label htmlFor="skills">Skills</label>
-			<div className="skills">
-				{skills.map((entry) => (
-					<div className="skill" key={entry.id}>
-						<p>{entry.skill}</p>
-						<button onClick={() => handleDeleteSkill(entry.id)}>x</button>
-					</div>
-				))}
+			<div>
+				<label htmlFor="skills">Skills</label>
+				<div className="skills">
+					{skills.map((entry) => (
+						<div className="skill" key={entry.id}>
+							<p>{entry.skill}</p>
+							<button onClick={() => handleDeleteSkill(entry.id)}><X/></button>
+						</div>
+					))}
+				</div>
+				<input
+					type="text"
+					id="skills"
+					value={inputValue}
+					placeholder="Type a skill and press Enter"
+					onChange={(e) => setInputValue(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							e.preventDefault();
+							addEntry();
+						}
+					}}
+				/>
 			</div>
-			<input
-				type="text"
-				id="skills"
-                value={inputValue}
-				onChange={(e) => setInputValue(e.target.value)}
-				onKeyDown={(e) => {
-					if (e.key === "Enter") {
-						e.preventDefault();
-						addEntry();
-					}
-				}}
-			/>
 			<button onClick={handleNext}>Next</button>
 		</div>
 	);
