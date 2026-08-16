@@ -19,7 +19,7 @@ export function SectionMenu({ currentSection, submittedSections, goToSection }) 
             return <button className="unlocked" onClick={() => goToSection(index)}>{sections[index]}</button>
         }
 
-        return <button className="locked">{sections[index]}</button>
+        return <button className="locked" disabled>{sections[index]}</button>
     }
 
 	return (
