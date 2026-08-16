@@ -88,6 +88,10 @@ h3 {
 	color: var(--color-text-muted);
 }
 
+.bullets.no-dates {
+	margin-left: var(--spacing-sm);
+}
+
 .bullets {
 	display: flex;
 	flex-direction: column;

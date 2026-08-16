@@ -28,7 +28,13 @@ export function CVPreview({ cvData }) {
 											{entry.location ? <p>{entry.location}</p> : null}
 										</div>
 										{entry.bullets.length > 0 ? (
-											<div className="bullets">
+											<div
+												className={
+													!entry.startDate && !entry.endDate
+														? "bullets no-dates"
+														: "bullets"
+												}
+											>
 												{entry.bullets.map((bullet) => {
 													return (
 														<div className="bullet" key={bullet.id}>
@@ -65,7 +71,13 @@ export function CVPreview({ cvData }) {
 											{entry.location ? <p>{entry.location}</p> : null}
 										</div>
 										{entry.bullets.length > 0 ? (
-											<div className="bullets">
+											<div
+												className={
+													!entry.startDate && !entry.endDate
+														? "bullets no-dates"
+														: "bullets"
+												}
+											>
 												{entry.bullets.map((bullet) => {
 													return (
 														<div className="bullet" key={bullet.id}>

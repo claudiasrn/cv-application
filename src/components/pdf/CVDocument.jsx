@@ -220,6 +220,11 @@ const styles = StyleSheet.create({
 		fontSize: pdfTheme.fontSizes.body,
 		fontWeight: "normal",
 	},
+	bulletsListNoDates: {
+		flexDirection: "column",
+		gap: pdfTheme.spacing.sm,
+		marginLeft: pdfTheme.spacing.sm,
+	},
 });
 
 export function CVDocument({ cvData }) {
@@ -324,7 +329,16 @@ export function CVDocument({ cvData }) {
 												{entry.location ? <Text>{entry.location}</Text> : null}
 											</View>
 											{entry.bullets.length > 0 ? (
-												<View style={styles.bulletsList}>
+												<View
+													style={
+														!entry.startDate && !entry.endDate
+															? [
+																	styles.bulletsList,
+																	{ marginLeft: pdfTheme.spacing.sm },
+																]
+															: styles.bulletsList
+													}
+												>
 													{entry.bullets.map((bullet) => {
 														return (
 															<View style={styles.bulletRow} key={bullet.id}>
@@ -378,7 +392,16 @@ export function CVDocument({ cvData }) {
 												{entry.location ? <Text>{entry.location}</Text> : null}
 											</View>
 											{entry.bullets.length > 0 ? (
-												<View style={styles.bulletsList}>
+												<View
+													style={
+														!entry.startDate && !entry.endDate
+															? [
+																	styles.bulletsList,
+																	{ marginLeft: pdfTheme.spacing.sm },
+																]
+															: styles.bulletsList
+													}
+												>
 													{entry.bullets.map((bullet) => {
 														return (
 															<View style={styles.bulletRow} key={bullet.id}>
