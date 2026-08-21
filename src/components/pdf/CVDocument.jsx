@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
 		flex: 0,
 		flexShrink: 1,
 		flexGrow: 1,
+		minWidth: 0,
 		paddingRight: pdfTheme.spacing.lg,
 		borderLeftWidth: BORDER_THIN,
 		borderLeftColor: pdfTheme.colors.accent,
@@ -152,6 +153,18 @@ const styles = StyleSheet.create({
 		gap: pdfTheme.spacing.sm,
 		fontSize: pdfTheme.fontSizes.body,
 		color: pdfTheme.colors.textMuted,
+	},
+	bulletText: {
+		flexGrow: 1,
+		flexShrink: 1,
+		flexBasis: 0,
+		minWidth: 0,
+	},
+	entryContent: {
+		flexGrow: 1,
+		flexShrink: 1,
+		flexBasis: 0,
+		minWidth: 0,
 	},
 	projectLink: {
 		textDecoration: "none",
@@ -313,7 +326,7 @@ export function CVDocument({ cvData }) {
 												<Text style={styles.datesText}>{entry.endDate}</Text>
 											</View>
 										) : null}
-										<View>
+										<View style={styles.entryContent}>
 											{entry.title ? (
 												<Text style={styles.entryTitle}>{entry.title}</Text>
 											) : null}
@@ -343,7 +356,9 @@ export function CVDocument({ cvData }) {
 														return (
 															<View style={styles.bulletRow} key={bullet.id}>
 																<Text>•</Text>
-																<Text>{bullet.text}</Text>
+																<Text style={styles.bulletText}>
+																	{bullet.text}
+																</Text>
 															</View>
 														);
 													})}
@@ -376,7 +391,7 @@ export function CVDocument({ cvData }) {
 												<Text style={styles.datesText}>{entry.endDate}</Text>
 											</View>
 										) : null}
-										<View>
+										<View style={styles.entryContent}>
 											{entry.degree ? (
 												<Text style={styles.entryTitle}>{entry.degree}</Text>
 											) : null}
@@ -406,7 +421,9 @@ export function CVDocument({ cvData }) {
 														return (
 															<View style={styles.bulletRow} key={bullet.id}>
 																<Text>•</Text>
-																<Text>{bullet.text}</Text>
+																<Text style={styles.bulletText}>
+																	{bullet.text}
+																</Text>
 															</View>
 														);
 													})}
@@ -449,7 +466,9 @@ export function CVDocument({ cvData }) {
 													return (
 														<View style={styles.bulletRow} key={bullet.id}>
 															<Text>•</Text>
-															<Text>{bullet.text}</Text>
+															<Text style={styles.bulletText}>
+																{bullet.text}
+															</Text>
 														</View>
 													);
 												})}
