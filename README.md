@@ -1,6 +1,6 @@
 # CV Builder
 
-A small React application that lets you build a CV/résumé section by section and export it as a polished PDF — built as my the first React project.
+A small React application that lets you build a CV/résumé section by section and export it as a polished PDF — built as my first React project.
 
 ## Features
 
