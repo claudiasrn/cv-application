@@ -153,7 +153,7 @@ export function CVPreview({ cvData }) {
 				{cvData.header.linkedin ? (
 					<div className="linkedin">
 						<FaLinkedin size={16} color="var(--color-background)" />
-						<a href={cvData.header.linkedin}>Click to open LinkIn</a>
+						<a href={cvData.header.linkedin}>Click to open LinkedIn</a>
 					</div>
 				) : null}
 				{cvData.header.portfolio ? (
