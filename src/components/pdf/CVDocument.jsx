@@ -448,6 +448,7 @@ export function CVDocument({ cvData }) {
 								return (
 									<View
 										key={entry.id}
+										wrap={false}
 										style={
 											index > 0 ? { marginTop: pdfTheme.spacing.lg } : null
 										}
@@ -464,7 +465,11 @@ export function CVDocument({ cvData }) {
 											<View style={styles.projectBullets}>
 												{entry.bullets.map((bullet) => {
 													return (
-														<View style={styles.bulletRow} key={bullet.id}>
+														<View
+															wrap={false}
+															style={styles.bulletRow}
+															key={bullet.id}
+														>
 															<Text>•</Text>
 															<Text style={styles.bulletText}>
 																{bullet.text}
